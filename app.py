@@ -1,11 +1,8 @@
 import streamlit as st
 import pickle
 import requests
-from dotenv import load_dotenv
-import os
 
-load_dotenv()
-tmdb_api_key = os.getenv('TMDB_API_KEY')
+tmdb_api_key = st.secrets["TMDB_API_KEY"]
 
 def fetch_poster(movie_id):
     url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key={tmdb_api_key}".format(movie_id)
@@ -48,3 +45,4 @@ if st.button(":blue[Recommend] :sunglasses:"):
             st.text(recommended_movie_names[i])
 
             st.image(recommended_movie_posters[i])
+
