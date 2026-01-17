@@ -17,7 +17,7 @@ def fetch_poster(movie_id):
 
 def recommend(movie):
     index = df[df['title'] == movie].index[0]
-    distance = sorted(list(enumerate(similarity[index])), reverse=True, key=lambda x: x[1])
+    distance = sorted(list(enumerate(top_k[index])), reverse=True, key=lambda x: x[1])
 
     recommended_movie_names = []
     recommended_movie_posters = []
@@ -32,7 +32,7 @@ def recommend(movie):
 
 
 df = pickle.load(open('data.pkl','rb'))
-similarity = pickle.load(open('similarity.pkl','rb'))
+top_k = pickle.load(open("similar_k.pkl", "rb"))
 
 st.title("MOVIE RECOMMENDATION SYSTEM")
 st.write(":red[.. vansh pandey]")
@@ -46,4 +46,5 @@ if st.button(":blue[Recommend] :sunglasses:"):
     for i, col in enumerate(cols):
         with col:
             st.text(recommended_movie_names[i])
+
             st.image(recommended_movie_posters[i])
