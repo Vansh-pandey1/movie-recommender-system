@@ -40,7 +40,7 @@ selected_movie = st.selectbox(
     df['title'].values
 )
 
-if st.button("Recommend :[sunglases]"):
+if st.button("Recommend 😎"):
     movie_idx = df[df['title'] == selected_movie].index[0]
     similar_indices = recommend_by_index(movie_idx, k=5)
     
@@ -58,6 +58,7 @@ if st.button("Recommend :[sunglases]"):
             col1.write("No poster")
         
         col2.write(f"**{title}**")
+
 
 
 
