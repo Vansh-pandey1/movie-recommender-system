@@ -33,6 +33,7 @@ def fetch_poster(movie_id):
     
 # ---- STREAMLIT UI ----
 st.title("🎬 Movie Recommender System")
+st.write(":red[.. vansh pandey]")
 
 selected_movie = st.selectbox(
     "Select a movie:",
@@ -57,4 +58,5 @@ if st.button("Recommend"):
             col1.write("No poster")
         
         col2.write(f"**{title}**")
+
 
